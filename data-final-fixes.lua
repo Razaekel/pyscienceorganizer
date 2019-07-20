@@ -41,6 +41,7 @@ end
 
 --add missing pre-req
 TECHNOLOGY('sulfur-processing'):add_prereq('logistic-science-pack')
+TECHNOLOGY('construction-robotics'):add_prereq('robotics')
 
 ----------------------------------------------
 -- Chemical Science Pack
