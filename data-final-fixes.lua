@@ -78,3 +78,7 @@ TECHNOLOGY('uranium-processing'):remove_prereq('fine-electronics'):add_prereq('c
 ----------------------------------------------
 
 RECIPE("iron-oxide-breakdown"):remove_unlock('coal-processing-1'):add_unlock('sulfur-processing')
+
+if mods["pyrawores"] then
+	RECIPE("quenching-tower"):remove_unlock('coal-processing-2'):add_unlock('coke-mk01')
+end
