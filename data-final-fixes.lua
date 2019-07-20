@@ -89,6 +89,10 @@ if mods["pyfusionenergy"] then
 
 	--add prerequisites
 	TECHNOLOGY('production-science-pack'):add_prereq('advanced-mining-facilities'):add_prereq('fuel-production')
+	
+	if mods['pyrawores'] then
+		TECHNOLOGY('production-science-pack'):add_prereq('diamond-mining'):add_prereq('coal-processing-3')
+	end
 
 	--fix other tech pre-reqs
 	TECHNOLOGY('automation-3'):remove_prereq('diamond-mining'):add_prereq('production-science-pack')
