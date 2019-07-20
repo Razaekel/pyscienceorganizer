@@ -3,6 +3,13 @@
 ----------------------------------------------
 RECIPE("logistic-science-pack"):remove_unlock('coal-processing-1'):add_unlock('logistic-science-pack')
 
+RECIPE("alien-sample01"):remove_unlock('coal-processing-1'):add_unlock('logistic-science-pack')
+RECIPE("bio-sample01"):remove_unlock('coal-processing-1'):add_unlock('logistic-science-pack')
+RECIPE("ground-sample01"):remove_unlock('coal-processing-1'):add_unlock('logistic-science-pack')
+RECIPE("lab-instrument"):remove_unlock('coal-processing-1'):add_unlock('logistic-science-pack')
+RECIPE("equipment-chassi"):remove_unlock('coal-processing-1'):add_unlock('logistic-science-pack')
+RECIPE("lens"):remove_unlock('coal-processing-1'):add_unlock('logistic-science-pack')
+
 --add prerequisites
 TECHNOLOGY("logistic-science-pack"):add_prereq('coal-processing-1')
 
@@ -25,6 +32,7 @@ TECHNOLOGY('landfill'):remove_prereq('coal-processing-1'):add_prereq('logistic-s
 TECHNOLOGY('engine'):remove_prereq('coal-processing-1'):add_prereq('logistic-science-pack')
 TECHNOLOGY('toolbelt'):remove_prereq('coal-processing-1'):add_prereq('logistic-science-pack')
 TECHNOLOGY('advanced-material-processing'):remove_prereq('coal-processing-1'):add_prereq('logistic-science-pack')
+
 
 --if Py Raw Ores is enabled, engines don't require logistics
 if mods["pyrawores"] then
@@ -63,3 +71,9 @@ TECHNOLOGY('advanced-oil-processing'):remove_prereq('fine-electronics'):add_prer
 TECHNOLOGY('low-density-structure'):remove_prereq('fine-electronics'):add_prereq('chemical-science-pack')
 TECHNOLOGY('military-3'):remove_prereq('fine-electronics'):add_prereq('chemical-science-pack')
 TECHNOLOGY('uranium-processing'):remove_prereq('fine-electronics'):add_prereq('chemical-science-pack')
+
+----------------------------------------------
+-- Recipe Fixes
+----------------------------------------------
+
+RECIPE("iron-oxide-breakdown"):remove_unlock('coal-processing-1'):add_unlock('sulfur-processing')
