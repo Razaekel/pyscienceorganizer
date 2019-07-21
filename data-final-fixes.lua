@@ -85,6 +85,45 @@ if mods['pyindustry'] then
 end
 
 ----------------------------------------------
+-- Production Science Pack (Modified by PyFusionEnergy)
+----------------------------------------------
+if mods["pyfusionenergy"] then
+	RECIPE("production-science-pack"):remove_unlock('diamond-mining'):add_unlock('production-science-pack')
+
+	RECIPE("coated-container"):remove_unlock('diamond-mining'):add_unlock('production-science-pack')
+	RECIPE("lead-container"):remove_unlock('diamond-mining'):add_unlock('production-science-pack')
+	RECIPE("science-coating"):remove_unlock('diamond-mining'):add_unlock('production-science-pack')
+	RECIPE("control-unit"):remove_unlock('advanced-mining-facilities'):add_unlock('production-science-pack')
+	RECIPE("nuclear-sample"):remove_unlock('advanced-mining-facilities'):add_unlock('production-science-pack')
+
+	--add prerequisites
+	TECHNOLOGY('production-science-pack'):add_prereq('advanced-mining-facilities'):add_prereq('fuel-production')
+	
+	if mods['pyrawores'] then
+		TECHNOLOGY('production-science-pack'):add_prereq('diamond-mining'):add_prereq('coal-processing-3')
+	end
+
+	--fix other tech pre-reqs
+	TECHNOLOGY('automation-3'):remove_prereq('diamond-mining'):add_prereq('production-science-pack')
+	TECHNOLOGY('logistics-3'):remove_prereq('diamond-mining'):add_prereq('production-science-pack')
+	TECHNOLOGY('coal-liquefaction'):remove_prereq('diamond-mining'):add_prereq('production-science-pack')
+	TECHNOLOGY('kovarex-enrichment-process'):remove_prereq('diamond-mining'):add_prereq('production-science-pack')
+	TECHNOLOGY('nuclear-fuel-reprocessing'):remove_prereq('diamond-mining'):add_prereq('production-science-pack')
+	TECHNOLOGY('speed-module-3'):remove_prereq('diamond-mining'):add_prereq('production-science-pack')
+	TECHNOLOGY('productivity-module-3'):remove_prereq('diamond-mining'):add_prereq('production-science-pack')
+	TECHNOLOGY('effectivity-module-3'):remove_prereq('diamond-mining'):add_prereq('production-science-pack')
+	TECHNOLOGY('effect-transmission'):remove_prereq('diamond-mining'):add_prereq('production-science-pack')
+	TECHNOLOGY('fusion-mk01'):remove_prereq('diamond-mining'):add_prereq('production-science-pack')
+	
+	--add missing pre-req
+	TECHNOLOGY('regolite-mining'):add_prereq('production-science-pack')	
+end
+
+if mods['pyrawores'] then	
+	TECHNOLOGY('machines-mk04'):add_prereq('production-science-pack')
+end
+
+----------------------------------------------
 -- Technology Fixes
 ----------------------------------------------
 TECHNOLOGY('advanced-electronics-2'):add_prereq('advanced-electronics')
