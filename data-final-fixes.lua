@@ -140,6 +140,9 @@ if mods["pyhightech"] then
 	TECHNOLOGY('personal-roboport-equipment-2'):remove_prereq('nano-tech'):add_prereq('utility-science-pack')
 	TECHNOLOGY('quantum'):remove_prereq('nano-tech'):add_prereq('utility-science-pack')	
 	
+	--add missing pre-req
+	TECHNOLOGY('nano-tech'):add_prereq('production-science-pack')
+	
 	if mods['pyrawores'] then
 		TECHNOLOGY('machines-mk04'):add_prereq('utility-science-pack')
 	end
