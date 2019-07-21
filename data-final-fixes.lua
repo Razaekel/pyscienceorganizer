@@ -41,7 +41,6 @@ end
 
 --add missing pre-req
 TECHNOLOGY('sulfur-processing'):add_prereq('logistic-science-pack')
-TECHNOLOGY('construction-robotics'):add_prereq('robotics')
 
 ----------------------------------------------
 -- Chemical Science Pack
@@ -73,10 +72,105 @@ TECHNOLOGY('low-density-structure'):remove_prereq('fine-electronics'):add_prereq
 TECHNOLOGY('military-3'):remove_prereq('fine-electronics'):add_prereq('chemical-science-pack')
 TECHNOLOGY('uranium-processing'):remove_prereq('fine-electronics'):add_prereq('chemical-science-pack')
 
+--add missing pre-reqs
+TECHNOLOGY('coal-processing-3'):add_prereq('chemical-science-pack')
+
+if mods['pyrawores'] then	
+	TECHNOLOGY('fuel-production'):add_prereq('chemical-science-pack')
+	TECHNOLOGY('advanced-electronics-2'):remove_prereq('chemical-science-pack'):add_prereq('gold')
+end
+
+if mods['pyindustry'] then
+	TECHNOLOGY('py-warehouse-logistics-research'):add_prereq('chemical-science-pack')
+end
+
+----------------------------------------------
+-- Production Science Pack (Modified by PyFusionEnergy)
+----------------------------------------------
+if mods["pyfusionenergy"] then
+	RECIPE("production-science-pack"):remove_unlock('diamond-mining'):add_unlock('production-science-pack')
+
+	RECIPE("coated-container"):remove_unlock('diamond-mining'):add_unlock('production-science-pack')
+	RECIPE("lead-container"):remove_unlock('diamond-mining'):add_unlock('production-science-pack')
+	RECIPE("science-coating"):remove_unlock('diamond-mining'):add_unlock('production-science-pack')
+	RECIPE("control-unit"):remove_unlock('advanced-mining-facilities'):add_unlock('production-science-pack')
+	RECIPE("nuclear-sample"):remove_unlock('advanced-mining-facilities'):add_unlock('production-science-pack')
+
+	--add prerequisites
+	TECHNOLOGY('production-science-pack'):add_prereq('advanced-mining-facilities'):add_prereq('fuel-production')
+	
+	if mods['pyrawores'] then
+		TECHNOLOGY('production-science-pack'):add_prereq('diamond-mining'):add_prereq('coal-processing-3')
+	end
+
+	--fix other tech pre-reqs
+	TECHNOLOGY('automation-3'):remove_prereq('diamond-mining'):add_prereq('production-science-pack')
+	TECHNOLOGY('logistics-3'):remove_prereq('diamond-mining'):add_prereq('production-science-pack')
+	TECHNOLOGY('coal-liquefaction'):remove_prereq('diamond-mining'):add_prereq('production-science-pack')
+	TECHNOLOGY('kovarex-enrichment-process'):remove_prereq('diamond-mining'):add_prereq('production-science-pack')
+	TECHNOLOGY('nuclear-fuel-reprocessing'):remove_prereq('diamond-mining'):add_prereq('production-science-pack')
+	TECHNOLOGY('speed-module-3'):remove_prereq('diamond-mining'):add_prereq('production-science-pack')
+	TECHNOLOGY('productivity-module-3'):remove_prereq('diamond-mining'):add_prereq('production-science-pack')
+	TECHNOLOGY('effectivity-module-3'):remove_prereq('diamond-mining'):add_prereq('production-science-pack')
+	TECHNOLOGY('effect-transmission'):remove_prereq('diamond-mining'):add_prereq('production-science-pack')
+	TECHNOLOGY('fusion-mk01'):remove_prereq('diamond-mining'):add_prereq('production-science-pack')
+	
+	--add missing pre-req
+	TECHNOLOGY('regolite-mining'):add_prereq('production-science-pack')	
+end
+
+if mods['pyrawores'] then	
+	TECHNOLOGY('machines-mk04'):add_prereq('production-science-pack')
+end
+
+----------------------------------------------
+-- Utility Science Pack (modified by PyHighTech)
+----------------------------------------------
+if mods["pyhightech"] then
+	RECIPE("utility-science-pack"):remove_unlock('nano-tech'):add_unlock('utility-science-pack')
+
+	--add prerequisites
+	TECHNOLOGY('utility-science-pack'):add_prereq('nano-tech')
+
+	--fix other tech pre-reqs
+	TECHNOLOGY('military-4'):remove_prereq('nano-tech'):add_prereq('utility-science-pack')
+	TECHNOLOGY('rocket-control-unit'):remove_prereq('nano-tech'):add_prereq('utility-science-pack')
+	-- TECHNOLOGY('logistic-system'):remove_prereq('nano-tech'):add_prereq('utility-science-pack')
+	TECHNOLOGY('fusion-reactor-equipment'):remove_prereq('nano-tech'):add_prereq('utility-science-pack')
+	TECHNOLOGY('personal-roboport-equipment-2'):remove_prereq('nano-tech'):add_prereq('utility-science-pack')
+	TECHNOLOGY('quantum'):remove_prereq('nano-tech'):add_prereq('utility-science-pack')	
+	
+	--add missing pre-req
+	TECHNOLOGY('nano-tech'):add_prereq('production-science-pack')
+	
+	if mods['pyrawores'] then
+		TECHNOLOGY('machines-mk04'):add_prereq('utility-science-pack')
+	end
+	
+	if mods['pypetroleumhandling'] then
+		TECHNOLOGY('oil-machines-mk04'):add_prereq('utility-science-pack')
+	end
+end
+
+----------------------------------------------
+-- Technology Fixes
+----------------------------------------------
+TECHNOLOGY('advanced-electronics-2'):add_prereq('advanced-electronics')
+TECHNOLOGY('construction-robotics'):add_prereq('robotics')
+
+if mods['pyrawores'] then
+	TECHNOLOGY('gold'):remove_pack('production-science-pack'):remove_prereq('machines-mk03')
+	TECHNOLOGY('advanced-material-processing-2'):add_prereq('iron-mk03')
+	TECHNOLOGY('coke-mk01'):remove_prereq('coal-processing-1'):add_prereq('coal-processing-2'):add_prereq('concrete')
+end
+
+if mods['pyhightech'] then
+	TECHNOLOGY('fusion-mk04'):add_prereq('nano-tech')
+end
+
 ----------------------------------------------
 -- Recipe Fixes
 ----------------------------------------------
-
 RECIPE("iron-oxide-breakdown"):remove_unlock('coal-processing-1'):add_unlock('sulfur-processing')
 
 if mods["pyrawores"] then
