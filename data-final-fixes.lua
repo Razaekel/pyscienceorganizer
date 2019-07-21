@@ -124,6 +124,32 @@ if mods['pyrawores'] then
 end
 
 ----------------------------------------------
+-- Utility Science Pack (modified by PyHighTech)
+----------------------------------------------
+if mods["pyhightech"] then
+	RECIPE("utility-science-pack"):remove_unlock('nano-tech'):add_unlock('utility-science-pack')
+
+	--add prerequisites
+	TECHNOLOGY('utility-science-pack'):add_prereq('nano-tech')
+
+	--fix other tech pre-reqs
+	TECHNOLOGY('military-4'):remove_prereq('nano-tech'):add_prereq('utility-science-pack')
+	TECHNOLOGY('rocket-control-unit'):remove_prereq('nano-tech'):add_prereq('utility-science-pack')
+	-- TECHNOLOGY('logistic-system'):remove_prereq('nano-tech'):add_prereq('utility-science-pack')
+	TECHNOLOGY('fusion-reactor-equipment'):remove_prereq('nano-tech'):add_prereq('utility-science-pack')
+	TECHNOLOGY('personal-roboport-equipment-2'):remove_prereq('nano-tech'):add_prereq('utility-science-pack')
+	TECHNOLOGY('quantum'):remove_prereq('nano-tech'):add_prereq('utility-science-pack')	
+	
+	if mods['pyrawores'] then
+		TECHNOLOGY('machines-mk04'):add_prereq('utility-science-pack')
+	end
+	
+	if mods['pypetroleumhandling'] then
+		TECHNOLOGY('oil-machines-mk04'):add_prereq('utility-science-pack')
+	end
+end
+
+----------------------------------------------
 -- Technology Fixes
 ----------------------------------------------
 TECHNOLOGY('advanced-electronics-2'):add_prereq('advanced-electronics')
@@ -135,8 +161,8 @@ if mods['pyrawores'] then
 	TECHNOLOGY('coke-mk01'):remove_prereq('coal-processing-1'):add_prereq('coal-processing-2'):add_prereq('concrete')
 end
 
-if mods['pyrawores'] and mods['pyhightech'] then
-	TECHNOLOGY('machines-mk04'):add_prereq('nano-tech')
+if mods['pyhightech'] then
+	TECHNOLOGY('fusion-mk04'):add_prereq('nano-tech')
 end
 
 ----------------------------------------------
