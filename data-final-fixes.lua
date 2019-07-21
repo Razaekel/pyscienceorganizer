@@ -72,8 +72,17 @@ TECHNOLOGY('low-density-structure'):remove_prereq('fine-electronics'):add_prereq
 TECHNOLOGY('military-3'):remove_prereq('fine-electronics'):add_prereq('chemical-science-pack')
 TECHNOLOGY('uranium-processing'):remove_prereq('fine-electronics'):add_prereq('chemical-science-pack')
 
---add missing pre-req
+--add missing pre-reqs
 TECHNOLOGY('coal-processing-3'):add_prereq('chemical-science-pack')
+
+if mods['pyrawores'] then	
+	TECHNOLOGY('fuel-production'):add_prereq('chemical-science-pack')
+	TECHNOLOGY('advanced-electronics-2'):remove_prereq('chemical-science-pack'):add_prereq('gold')
+end
+
+if mods['pyindustry'] then
+	TECHNOLOGY('py-warehouse-logistics-research'):add_prereq('chemical-science-pack')
+end
 
 ----------------------------------------------
 -- Technology Fixes
@@ -83,14 +92,12 @@ TECHNOLOGY('construction-robotics'):add_prereq('robotics')
 
 if mods['pyrawores'] then
 	TECHNOLOGY('gold'):remove_pack('production-science-pack'):remove_prereq('machines-mk03')
-	TECHNOLOGY('machines-mk04'):add_prereq('production-science-pack'):add_prereq('utility-science-pack')
-	TECHNOLOGY('advanced-electronics-2'):remove_prereq('chemical-science-pack'):add_prereq('gold')
-	TECHNOLOGY('fuel-production'):add_prereq('chemical-science-pack')
 	TECHNOLOGY('advanced-material-processing-2'):add_prereq('iron-mk03')
+	TECHNOLOGY('coke-mk01'):remove_prereq('coal-processing-1'):add_prereq('coal-processing-2'):add_prereq('concrete')
 end
 
-if mods['pyindustry'] then
-	TECHNOLOGY('py-warehouse-logistics-research'):add_prereq('chemical-science-pack')
+if mods['pyrawores'] and mods['pyhightech'] then
+	TECHNOLOGY('machines-mk04'):add_prereq('nano-tech')
 end
 
 ----------------------------------------------
